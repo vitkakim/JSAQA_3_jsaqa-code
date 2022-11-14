@@ -2,7 +2,6 @@ let page;
 
 beforeEach(async () => {
   page = await browser.newPage();
-  await page.goto("https://github.com/team");
 }, 5000);
 
 afterEach(() => {
@@ -11,6 +10,10 @@ afterEach(() => {
 
 describe("Github page tests", () => {
   
+  beforeEach(async () => {
+    await page.goto("https://github.com/team");
+  }, 5000);
+
   test("The h1 header content'", async () => {
     const firstLink = await page.$("header div div a");
     await firstLink.click();
